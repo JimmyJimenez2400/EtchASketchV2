@@ -37,18 +37,32 @@ function addMouseOver(cell){
 
 }
 
-function buttonChoice(){
+function buttonChoice(event){
+    const cell = event.target;
+
     if(colorMode === "black"){
-        this.style.backgroundColor = 'black';
+        cell.style.backgroundColor = 'black';
+        cell.style.opacity = "initial";
     }
     if(colorMode === "darken"){
-        this.style.backgroundColor = "black";
-        this.style.opacity = (parseFloat(this.style.opacity) || 0) + 0.2;
+        cell.style.backgroundColor = "black";
+        cell.style.opacity = (parseFloat(cell.style.opacity) || 0) + 0.2;
     }
     if(colorMode === "eraser"){
-        this.style.backgroundColor = "white";
+        cell.style.backgroundColor = "";
+        cell.style.opacity = "initial";
+    }
+    if(colorMode === "rainbow"){
+        const randomBetween = (min, max) => min + Math.floor(Math.random() * (max-min + 1));
+        const r = randomBetween(0,255);
+        const g = randomBetween(0,255);
+        const b = randomBetween(0,255);
+        const rgb = `rgb(${r}, ${g}, ${b})`;
+        cell.style.backgroundColor = rgb;
     }
 }
+
+
 
 
 
