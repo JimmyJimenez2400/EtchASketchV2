@@ -35,7 +35,17 @@ body{
 .column{
     aspect-ratio: 1/1;
     flex: 1 0 0;
-    
+}
+
+.updatedRow{
+    aspect-ratio: 1/1;
+    flex: 1 0 0;
+    border: 1px solid red;
+}
+
+.updatedColumn{
+    aspect-ratio: 1/1;
+    flex: 1 0 0;
 }
 /* #gridContainer div{
     aspect-ratio: 1/1;
