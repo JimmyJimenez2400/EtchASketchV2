@@ -1,45 +1,68 @@
 const gridContainer = document.getElementById('gridContainer');
-const allButtons = document.querySelectorAll('button');
+const allButtons = document.querySelectorAll('.buttons button');
+const gridButton = document.querySelector('#grid');
+const container = document.getElementById('container').parentNode;
+
 let colorMode;
 
-function createGrid(column, row){
-    for(let i = 0; i < column; i++){
+//Update Grid Button
+gridButton.addEventListener('click', updateGridHandler);
+
+
+function defaultGrid(gridDefine){
+    for(let i = 0; i < gridDefine; i++){
         const column = document.createElement('div');
         column.classList.add('column');
         gridContainer.appendChild(column);
-        for(let j = 0; j < row; j++){
+        for(let j = 0; j < gridDefine; j++){
             const row = document.createElement('div');
             row.classList.add('row');
             column.appendChild(row);
         }
     }
-}    
+}
 
-createGrid(16,16);
+defaultGrid(4);
+
+function createGrid(){
+    const cells = gridContainer.querySelectorAll('.row');
+    let gridDefine;
+    do{
+        gridDefine = parseInt(prompt("How many columns and rows do you want? \nExample: 2 is 2x2, 4 is 4x4, 16 is 16x16"));
+    } while(gridDefine >= 101);
+    for(let i = 0; i < gridDefine; i++){
+        const newColumn = document.createElement('div');
+        newColumn.classList.add('updatedColumn');
+        gridContainer.appendChild(newColumn);
+        for(let j = 0; j < gridDefine; j++){
+            const newRow = document.createElement('div');
+            newRow.classList.add('updatedRow');
+            newColumn.appendChild(newRow);
+        }
+    }
+
+    const newCells = gridContainer.querySelectorAll(".updatedRow");
+    newCells.forEach(addMouseOver);
+} 
 
 
 
-
-
-const cells = gridContainer.querySelectorAll('.row');
+const cells = document.querySelectorAll('.row');
 
 allButtons.forEach(button =>{
     button.addEventListener('click', (e)=>{
         colorMode = e.currentTarget.id;
         console.log(colorMode);
         cells.forEach(addMouseOver);
-        
     });
 })
 
 function addMouseOver(cell){
     cell.addEventListener('mouseover', buttonChoice);
-
 }
 
 function buttonChoice(event){
     const cell = event.target;
-
     if(colorMode === "black"){
         cell.style.backgroundColor = 'black';
         cell.style.opacity = "initial";
@@ -63,9 +86,23 @@ function buttonChoice(event){
 }
 
 
+function replaceGrid(){
+    let gridParent = document.getElementById("gridContainer");
+    console.log(`First Child: ${gridParent.firstChild}`);
+    console.log(`First Element Child:${gridParent.firstElementChild}`);
+    while(gridParent.firstElementChild){
+        gridParent.removeChild(gridParent.firstElementChild);
+    }
 
+    //remove the columns and children of it, and show new columns in grid
+    console.log(gridParent);
+    
+}
 
-
+function updateGridHandler(){
+    replaceGrid();
+    createGrid();
+}
 
 
 
@@ -104,4 +141,5 @@ function buttonChoice(event){
 // // function setColorBlack(){
 // //     this.style.backgroundColor = "black";
 // // }
+
 
