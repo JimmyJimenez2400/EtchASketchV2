@@ -9,7 +9,9 @@ let colorMode;
 gridButton.addEventListener('click', updateGridHandler);
 
 
-function defaultGrid(gridDefine){
+
+//reusable grid
+function grid(gridDefine){
     for(let i = 0; i < gridDefine; i++){
         const column = document.createElement('div');
         column.classList.add('column');
@@ -22,26 +24,22 @@ function defaultGrid(gridDefine){
     }
 }
 
-defaultGrid(4);
 
-function createGrid(){
-    const cells = gridContainer.querySelectorAll('.row');
-    let gridDefine;
+grid(4);
+
+function getUserValue(gridDefine){
     do{
         gridDefine = parseInt(prompt("How many columns and rows do you want? \nExample: 2 is 2x2, 4 is 4x4, 16 is 16x16"));
     } while(gridDefine >= 101);
-    for(let i = 0; i < gridDefine; i++){
-        const newColumn = document.createElement('div');
-        newColumn.classList.add('updatedColumn');
-        gridContainer.appendChild(newColumn);
-        for(let j = 0; j < gridDefine; j++){
-            const newRow = document.createElement('div');
-            newRow.classList.add('updatedRow');
-            newColumn.appendChild(newRow);
-        }
-    }
 
-    const newCells = gridContainer.querySelectorAll(".updatedRow");
+    return gridDefine;
+}
+
+
+function createGrid(){
+    let gridDefine = getUserValue();
+    grid(gridDefine);
+    const newCells = gridContainer.querySelectorAll(".row");
     newCells.forEach(addMouseOver);
 } 
 
@@ -106,40 +104,5 @@ function updateGridHandler(){
 
 
 
-
-// console.log(cells);
-
-// cells.forEach(cell =>{
-//     cell.addEventListener('mouseover', (e)=>{
-//         setColorBlack(e);
-        
-//     })
-// })
-
-
-
-
-
-
-
-
-
-// function setToEraser(event){
-//     event.currentTarget.style.backgroundColor="white";
-// }
-
-
-
- 
-
-
-
-// cells.forEach((cell)=>{
-//     cell.addEventListener('mouseover', setColorBlack);
-// });
-
-// // function setColorBlack(){
-// //     this.style.backgroundColor = "black";
-// // }
-
+/* SUGGESTIONS */ 
 
