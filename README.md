@@ -5,4 +5,4 @@ Motivation came from TOP as to learn and get familarize with query selectors and
 
 github: https://github.com/JimmyJimenez2400/EtchASketchV2
 
-Live Preview: https://jimmyjimenez2400.github.io/Etch-a-Sketch/
+Live Preview: https://jimmyjimenez2400.github.io/EtchASketchV2/
