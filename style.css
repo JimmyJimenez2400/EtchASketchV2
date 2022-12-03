@@ -5,7 +5,7 @@
 }
 
 body{
-    height: 100vh;
+    height: 100%;
     background-color: #16324C;
     display: flex;
     flex-direction: column;
@@ -155,15 +155,14 @@ button{
 
 .title{
     cursor: pointer;
-    font-size: 2em;
+    font-size: 1em;
     color: #925741;
     transition: font-size 4s , transform 2s;
 }
 
 .title:hover{
-    font-size: 3em;
+    font-size: 1em;
     animation: shakethesenuts 0.5s;
-
     animation-iteration-count: infinite;
 }
 
