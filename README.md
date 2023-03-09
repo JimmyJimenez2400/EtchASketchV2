@@ -9,6 +9,6 @@ Motivation came from TOP as to learn and get familarize with query selectors and
 ## Acknowledgements
 The Odin Project: [Etch-A-Sketch]()
 
-#Live Preview
+# Live Preview
 
 [Try Out Project](https://jimmyjimenez2400.github.io/EtchASketchV2/)
